@@ -5,7 +5,7 @@
   connection: ssh
   tasks:
 
-     - name: Clone Flipkart Repo
+     - name: Clone Flipkart Repository 
        repo: https://github.com/Msocial123/Flipkart-Clone.git
        dest: index.html
        version: main
