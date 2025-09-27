@@ -14,7 +14,7 @@
 
      - name: Copy application code to web root
        copy:
-        src: "/home/ansible/Ansible-Playbook/"
+        src: "/home/ansible/Flipkart-clone/"
         dest: "/var/www/html/"
         owner: apache
         group: apache
