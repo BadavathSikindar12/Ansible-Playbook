@@ -21,12 +21,6 @@
         key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
         state: present
         
-    - name: Install Epel Release
-      yum:
-        name: epel release
-        state: present
-
-
     - name: Install Jenkins
       yum:
         name: jenkins
