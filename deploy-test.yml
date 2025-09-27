@@ -1,0 +1,29 @@
+---
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+
+     - name: Clone Flipkart Repository 
+       git:
+        repo: https://github.com/Msocial123/Flipkart-Clone.git
+        dest: "/home/ansible/Flipkart-Clone"
+        version: main
+        force: yes 
+
+     - name: Copy application code to web root
+       copy:
+        src: "/home/ansible/Flipkart-Clone/"
+        dest: "/var/www/html/"
+        owner: apache
+        group: apache
+        mode: '0755'
+        remote_src: yes
+
+     - name: Set correct permissions for web root
+       file:
+        path: /var/www/html
+        owner: apache
+        group: apache
+        recurse: yes
