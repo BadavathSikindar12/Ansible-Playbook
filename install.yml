@@ -1,0 +1,46 @@
+---
+ - hosts: webservers 
+   user: ansible
+   connetion: ssh
+   become: true
+   gather_facts: false
+
+  tasks:
+    - name: Check if Java is installed
+      shell: rpm -q java-1.8.0-openjdk
+      register: java_check
+      ignore_errors: true
+
+    - name: Install latest Java if not present
+      yum:
+        name: java-1.8.0-openjdk
+        state: latest
+      when: java_check.rc != 0
+
+    - name: Check if Python is installed
+      shell: rpm -q python3
+      register: python_check
+      ignore_errors: true
+
+    - name: Install latest Python if not present
+      yum:
+        name: python3
+        state: latest
+      when: python_check.rc != 0
+
+    - name: Check if Git is installed
+      shell: rpm -q git
+      register: git_check
+      ignore_errors: true
+
+    - name: Install latest Git if not present
+      yum:
+        name: git
+        state: latest
+      when: git_check.rc != 0
+
+    - name: Continue with next task
+      debug:
+        msg: "Latest versions installed where needed."
+
+
