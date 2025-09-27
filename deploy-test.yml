@@ -8,7 +8,7 @@
      - name: Clone Flipkart Repository 
        git:
         repo: https://github.com/Msocial123/Flipkart-Clone.git
-        dest: "/home/ansible/Flipkart-Clone"
+        dest: /var/www/html/
         version: main
         force: yes 
 
