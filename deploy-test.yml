@@ -12,18 +12,8 @@
         version: main
         force: yes 
 
-     - name: Copy application code to web root
-       copy:
-        src: "/home/ansible/Flipkart-clone/"
-        dest: "/var/www/html/"
-        owner: apache
-        group: apache
-        mode: '0755'
-        remote_src: yes
-
-     - name: Set correct permissions for web root
-       file:
-        path: /var/www/html
-        owner: apache
-        group: apache
-        recurse: yes
+     - name: Start and Enable webserver
+       service:
+        name: httpd
+        state: started
+        enabled: yes
