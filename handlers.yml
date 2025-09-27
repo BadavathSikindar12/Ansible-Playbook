@@ -10,7 +10,7 @@
     yum:
       name:
         - docker
-        - python-pip
+        - python-pip3
       state: present
 
   - name: Install docker-py
