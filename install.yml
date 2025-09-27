@@ -5,7 +5,7 @@
    become: true
    gather_facts: false
 
-  tasks:
+   tasks:
     - name: Check if Java is installed
       shell: rpm -q java-1.8.0-openjdk
       register: java_check
